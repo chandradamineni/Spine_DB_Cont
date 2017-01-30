@@ -274,7 +274,166 @@
                      </div>
                   </template>
                </div>
-               
+               <!-- sp : Cases section -->
+               <div class="sp-cell cases-sp">
+                  <div class="sp-cellheader">CASES</div>
+                  <div class="grid-sp">
+                     <div class="sp-cell">
+                        <div class="sp-cell-content" data-args$="cases,severity1,{{spCaseData.casesCountVo.sev1Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/cases_Hi.png" alt=""></span>
+                           <template is="dom-if" if="{{isspCaseDataLoaded}}">
+                              <span class="sp-countVal">{{spCaseData.casesCountVo.sev1Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspCaseDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspCaseError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <template is="dom-if" if="{{spCaseData.severity1.EXCases.length}}">
+                                       <div><b>EX CASES</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity1.EXCases}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/cases_Hi.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                    <template is="dom-if" if="{{spCaseData.severity1.anomalyCases.length}}">
+                                       <div align="left"><b>ANOMALY CASES</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity1.anomalyCases}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/cases_Hi.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                    <template is="dom-if" if="{{spCaseData.severity1.gC.length}}">
+                                       <div align="left"><b>GC</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity1.gC}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/cases_Hi.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                     <div class="sp-cell" align="center">
+                        <div class="sp-cell-content" data-args$="cases,severity2,{{spCaseData.casesCountVo.sev2Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/Case_Med.png" alt=""></span>
+                           <template is="dom-if" if="{{isspCaseDataLoaded}}">
+                              <span class="sp-countVal">{{spCaseData.casesCountVo.sev2Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspCaseDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspCaseError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <template is="dom-if" if="{{spCaseData.severity2.EXCases.length}}">
+                                       <div><b>EX CASES</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity2.EXCases}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Case_Med.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                    <template is="dom-if" if="{{spCaseData.severity2.anomalyCases.length}}">
+                                       <div align="left"><b>ANOMALY CASES</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity2.anomalyCases}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Case_Med.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                    <template is="dom-if" if="{{spCaseData.severity2.gC.length}}">
+                                       <div align="left"><b>GC</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity2.gC}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Case_Med.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                     <div class="sp-cell right-sp-cell" align="center">
+                        <div class="sp-cell-content" data-args$="cases,severity3,{{spCaseData.casesCountVo.sev3Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/Case_Low.png" alt=""></span>
+                           <template is="dom-if" if="{{isspCaseDataLoaded}}">
+                              <span class="sp-countVal">{{spCaseData.casesCountVo.sev3Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspCaseDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspCaseError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container last-container'>
+                                 <div class='popup-arrow last-arrow'></div>
+                                 <div class="popup-content">
+                                    <template is="dom-if" if="{{spCaseData.severity3.EXCases.length}}">
+                                       <div><b>EX CASES</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity3.EXCases}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Case_Low.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                    <template is="dom-if" if="{{spCaseData.severity3.anomalyCases.length}}">
+                                       <div align="left"><b>AN CASES</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity3.anomalyCases}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Case_Low.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                    <template is="dom-if" if="{{spCaseData.severity3.gC.length}}">
+                                       <div align="left"><b>GC</b></div>
+                                    </template>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spCaseData.severity3.gC}}" as="child">
+                                       <a href$="{{navigateTo('cases',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Case_Low.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                  </div>
+                  <template is="dom-if" if="{{!isspCaseDataLoaded}}">
+                     <div style="margin-top:10px">
+                        <span class="loading">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </span>
+                        <div style="margin-left:20px;margin-top:-19px">Loading cases..</div>
+                     </div>
+                  </template>
+                  <template is="dom-if" if="{{isspCaseError}}">
+                     <div style="margin-top:10px">
+                        Cases failed to load..
+                     </div>
+                  </template>
+               </div>
             </div>
             <!--  </template> -->
          </div>
