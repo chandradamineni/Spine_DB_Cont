@@ -1,0 +1,178 @@
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../p-card/px-card.html" />
+<link rel="import" href="../p-context-browser/px-context-browser.html" />
+<link rel="import" href="../p-deck-selector/p-deck-selector.html" />
+<link rel="import" href="../p-spinner/p-spinner.html" />
+<style>
+   .sp-cell .popup-container{
+   position: absolute;
+   margin-top: 12px;
+   max-width: 250px;
+   max-height: 300px;
+   background-color: #E0E0E0;
+   padding: 10px;
+   color: #24478f;
+   min-width: 230px;
+   z-index: 1500;
+   margin-left: -14px;
+   text-align: left;
+   }
+   .sp-cell .popup-container.last-container{
+   margin-left: -135px;
+   }
+   .sp-cell .popup-arrow.last-arrow{
+   left:135px;
+   }
+   .sp-cell-content .loading i{
+   top: -7px;
+   position: relative;
+   }
+   .sp-cell .popup-content{
+   max-height: 250px;
+   overflow:auto;
+   }
+   .sp-cell .popup-arrow{
+   position: absolute;
+   top: -20px;
+   left: 15px; 
+   margin-top: 10px;
+   border-left: 13px solid transparent;
+   border-right: 13px solid transparent;
+   border-bottom: 13px solid #E0E0E0;
+   width: 0;
+   height: 0;
+   }
+   .sp-cell .popup-listItem{
+   line-height: 30px;
+   vertical-align: top;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   min-width: 120px;
+   }
+   .sp-cell .popup-listItem img{
+   margin-right:5px;
+   }
+   .AN-sp .sp-cell .popup-listItem img{
+   margin-right:0px;
+   margin-top: -5px;
+   }
+   .sp-cell .popup-listHeader{
+   font-weight: bold;
+   color: black;
+   font-size: 12px;
+   margin-bottom: 7px;
+   }
+   .sp-cell .activePopUp{
+   position:absolute;
+   display:none;
+   }
+   .sp-cell .activePopUp a{
+   cursor:pointer;
+   text-decoration: none;
+   }
+</style>
+<dom-module id="dashboar-header">
+   <link rel="stylesheet" href="css/sp.css"/>
+   <template>
+      <template is="dom-if" if="{{showHeader}}">
+         <div class="spContainer">
+            <div class="grid-sp sp-container">
+               <!-- sp : EX section -->
+               <div class="sp-cell EX-sp">
+                  <div class="sp-cellheader">EXS</div>
+                  <div class="grid-sp">
+                     <div class="sp-cell">
+                        <div class="sp-cell-content" data-args$="EX,severity1,{{spEXData.EXsCountVo.sev1Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/Ex_Hi.png" alt="" ></span>
+                           <template is="dom-if" if="{{isspEXDataLoaded}}">
+                              <span class="sp-countVal">{{spEXData.EXsCountVo.sev1Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspEXDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspEXError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <div><b>EXS</b></div>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spEXData.severity1}}" as="child">
+                                       <a href$="{{navigateTo('EXs',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Ex_Hi.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                     <div class="sp-cell" align="center">
+                        <div class="sp-cell-content" data-args$="EX,severity2,{{spEXData.EXsCountVo.sev2Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/Ex_Low.png" alt=""></span>
+                           <template is="dom-if" if="{{isspEXDataLoaded}}">
+                              <span class="sp-countVal">{{spEXData.EXsCountVo.sev2Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspEXDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspEXError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <div align="left"><b>EXS</b></div>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spEXData.severity2}}" as="child">
+                                       <a href$="{{navigateTo('EXs',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Ex_Low.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                     <div class="sp-cell">
+                        <div class="EXType-sp-cell">
+                           Ongoing &nbsp;&nbsp;&nbsp;
+                           <template is="dom-if" if="{{!isspEXDataLoaded}}">--</template>
+                           <template is="dom-if" if="{{isspEXError}}">--</template>
+                           <template is="dom-if" if="{{isspEXDataLoaded}}">{{spEXData.EXsCountVo.ongoingCount}}</template>
+                           <br/>
+                           Unverified &nbsp;
+                           <template is="dom-if" if="{{!isspEXDataLoaded}}">--</template>
+                           <template is="dom-if" if="{{isspEXError}}">--</template>
+                           <template is="dom-if" if="{{isspEXDataLoaded}}">{{spEXData.EXsCountVo.unverifiedCount}}</template>
+                        </div>
+                     </div>
+                  </div>
+                  <template is="dom-if" if="{{!isspEXDataLoaded}}">
+                     <div style="margin-top:10px">
+                        <span class="loading">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </span>
+                        <div style="margin-left:20px;margin-top:-19px">Loading EXs..</div>
+                     </div>
+                  </template>
+                  <template is="dom-if" if="{{isspEXError}}">
+                     <div style="margin-top:10px">
+                        EXs failed to load..
+                     </div>
+                  </template>
+               </div>
+               
+            </div>
+            <!--  </template> -->
+         </div>
+      </template>
+   </template>
+</dom-module>
+<script type="text/javascript" src="js/sp.js"></script>
