@@ -268,7 +268,11 @@
                         <div style="margin-left:20px;margin-top:-19px">Loading AN..</div>
                      </div>
                   </template>
-                  
+                  <template is="dom-if" if="{{isspAnomalyError}}">
+                     <div style="margin-top:10px">
+                        AN failed to load..
+                     </div>
+                  </template>
                </div>
                
             </div>
