@@ -168,6 +168,100 @@
                      </div>
                   </template>
                </div>
+               <!-- sp : AN section -->
+               <div class="sp-cell AN-sp">
+                  <div class="sp-cellheader">AN</div>
+                  <div class="grid-sp">
+                     <div class="sp-cell">
+                        <div class="sp-cell-content" data-args$="AN,severity1,{{spAnomalyData.anomalyCountVo.sev1Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/Anmls_Hi.png" alt=""></span>
+                           <template is="dom-if" if="{{isspAnomalyDataLoaded}}">
+                              <span class="sp-countVal">{{spAnomalyData.anomalyCountVo.sev1Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspAnomalyDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspAnomalyError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <div><b>AN</b></div>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spAnomalyData.severity1}}" as="child">
+                                       <a href$="{{navigateTo('AN',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Anmls_Hi.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                     <div class="sp-cell" align="center">
+                        <div class="sp-cell-content" data-args$="AN,severity2,{{spAnomalyData.anomalyCountVo.sev2Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/Anmls_Med.png" alt=""></span>
+                           <template is="dom-if" if="{{isspAnomalyDataLoaded}}">
+                              <span class="sp-countVal">{{spAnomalyData.anomalyCountVo.sev2Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspAnomalyDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspAnomalyError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <div align="left"><b>AN</b></div>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spAnomalyData.severity2}}" as="child">
+                                       <a href$="{{navigateTo('AN',child)}}">
+                                          <div class='popup-listItem'><img src="../../images/Anmls_Med.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                     <div class="sp-cell right-sp-cell" align="center">
+                        <div class="sp-cell-content" data-args$="AN,severity3,{{spAnomalyData.anomalyCountVo.sev3Count}}" on-mouseover="popupHoverHandler" on-mouseout="popUpOutHandler">
+                           <span><img src="../../images/anmls_low.png" alt=""></span>
+                           <template is="dom-if" if="{{isspAnomalyDataLoaded}}">
+                              <span class="sp-countVal">{{spAnomalyData.anomalyCountVo.sev3Count}}</span>
+                           </template>
+                           <template is="dom-if" if="{{!isspAnomalyDataLoaded}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <template is="dom-if" if="{{isspAnomalyError}}">
+                              <span class="sp-countVal">--</span>
+                           </template>
+                           <!-- POP UP START -->
+                           <div class='activePopUp' on-mouseover="popUpMouseOverHandler">
+                              <div class='popup-container'>
+                                 <div class='popup-arrow'></div>
+                                 <div class="popup-content">
+                                    <div align="left"><b>AN</b></div>
+                                    <template id="vMap-safety-template" is="dom-repeat" items="{{spAnomalyData.severity3}}" as="child">
+                                       <a href$="{{navigateTo('AN',child)}}">
+                                          <div class='popup-listItem' style="float:left"><img src="../../images/anmls_low.png" style='vertical-align: middle' />{{child.name}}</div>
+                                       </a>
+                                    </template>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- POP UP END -->
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
                
             </div>
             <!--  </template> -->
