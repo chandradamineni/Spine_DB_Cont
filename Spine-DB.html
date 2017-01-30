@@ -260,6 +260,14 @@
                         </div>
                      </div>
                   </div>
+                  <template is="dom-if" if="{{!isspAnomalyDataLoaded}}">
+                     <div style="margin-top:10px">
+                        <span class="loading">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </span>
+                        <div style="margin-left:20px;margin-top:-19px">Loading AN..</div>
+                     </div>
+                  </template>
                   
                </div>
                
