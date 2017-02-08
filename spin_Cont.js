@@ -80,11 +80,8 @@ var spinetimer;
          clearTimeout(this.spinetimer);
     },
 
-        /* Breadcrumbs functionality */
-
         generateBreadcrumbs: function(data) {
         this.contextData = data;
-        //can configure breadcrumbs if required in this method
           
     },
     attached: function() {
