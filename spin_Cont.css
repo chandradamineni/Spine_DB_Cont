@@ -1,0 +1,56 @@
+  .grid-spine {
+  display: flex;
+  color:rgb(247, 247, 252);
+  margin-top:12px;
+}
+
+.spine-cell {
+  flex: 1;
+}
+
+.spine-cell-content{
+  height:35px;
+  display:inline-block;
+}
+
+.spine-cell-content .popup-content b{
+  color:#000;
+}
+
+.spine-cellheader {
+  font-size:15px;
+  padding-top:12px;
+  padding-bottom: 7px;
+  font-weight:bold;
+  
+}
+
+.spine-countVal{
+    line-height: 25px;
+    vertical-align: top;
+    font-size: 30px;
+    margin-left: 3px;
+}
+
+.spine-container{
+  padding:2px 0px 25px 12px;
+  margin-top: -5px;
+}
+
+
+.EXType-spine-cell{
+ text-align: right;
+    font-size: 13px;
+    margin-top: -5px;
+}
+
+.right-spine-cell{
+  margin-left:30px;
+}
+
+.spineContainer .loading{
+  color: white;
+  font-size: 13px;
+  /* margin-left: 10px; */
+}
+
