@@ -36,7 +36,18 @@
   padding:2px 0px 25px 12px;
   margin-top: -5px;
 }
+.EX-spine{
+  border-right:1px solid #757272;
+  padding: 0px 5px;
+}
 
+.AN-spine{
+  border-right:1px solid #757272;
+  padding: 0px 0px 0px 10px;
+}
+.CS-spine{
+  padding: 0px 0px 0px 10px;
+}
 
 .EXType-spine-cell{
  text-align: right;
